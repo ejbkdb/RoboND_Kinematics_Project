@@ -1,0 +1,9 @@
+Rtotal = Rz(alpha)*Ry(Beta)*Rx(Gamma)
+
+= [R11, R12, R13
+   R21, R22, R23
+   R31, R32, R33]
+
+Alpha = atan2(R21,R22)
+Beta = atan2(y,x) = atan2(-R31,sqrt(R12^2+R22^2))
+Gamma = atan2(R32,R33)
