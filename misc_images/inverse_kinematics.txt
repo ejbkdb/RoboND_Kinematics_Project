@@ -1,0 +1,27 @@
+Theta1, can be found by using the projection of the wrist center onto the XY plane.
+
+theta1 = atan2(Yc,Xc)
+  Xc = X component of wrist center position
+  Yc = Y component of wrist center position
+
+b = sqrt(d^2+e^2 - 2*d*e*cos(B))
+  b = straight line distance between joint 3 and 5
+  d = distance between joint 2 and 5
+  e = link length from joint 4 and 5
+  B = angle between d and e
+
+angle(a) = acos((b^2+c^2-a^2)/(2*b*c))
+angle(b) = acos((a^2+c^2-b^2)/(2*a*c))
+angle(c) = acos((a^2+b^2-c^2)/(2*a*b))
+
+Theta2 =(pi/2) - angle(a) - atan2(g,f)
+ g = (J5z-J2z) distance between the Z position of joint 5 and the Z position of joint 2
+ f = sqrt((J5x-J2x)^2-(J5y-J2y)^2) projection of c onto XY plane
+
+Theta3 = (pi/2)-angle(b) - asin(a/b)
+  a = link length from joint 2 to 3
+  b = straight distance from joint 3 to 5
+
+ The rotation matrix from the base to the 3rd link can then be calculated by extracting the rotation
+ matrix from each respective tranformation matrix for each joint and multiplying them together, substrituting
+ in for Theta1,Theta2, and Theta3.
