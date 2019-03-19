@@ -4,6 +4,7 @@
 
 [//]: # (Image References)
 [DH]: ./misc_images/DH_kuka.png
+[kuka]: ./misc_images/kuka_2.png
 
 Objectives: Utilize a simulated Kuka KR210 manipulator to pick up randomly generatedcylinders located on a shelf 
 and place them in a bucket
@@ -14,15 +15,15 @@ and place them in a bucket
 
 ### Denavit-Hartenberg Table
 
-| n |  theta |   d   |    a   | alpha |
-|:-:|:------:|:-----:|:------:|:-----:|
-| 0 |   -    |   -   |    0   |   0   |
-| 1 | theta1 |  0.75 |  0.35  | -pi/2 |
-| 2 | theta2 |   0   |  1.25  |   0   |
-| 3 | theta3 |   0   | -0.054 | -pi/2 |
-| 4 | theta4 |  1.5  |    0   |  pi/2 |
-| 5 | theta5 |   0   |    0   | -pi/2 |
-| 6 | theta6 | 0.303 |    0   |   0   |
+Links | alpha(i-1) | a(i-1) | d(i-1) | theta(i)
+--- | --- | --- | --- | ---
+0->1 | 0 | 0 | 0.75 | q1
+1->2 | -pi/2 | 0.35 | 0 | q2 - pi/2
+2->3 | 0 | 1.25 | 0 | q3
+3->4 |  -pi/2 | -0.054 | 1.5 | q4
+4->5 | pi/2 | 0 | 0 | q5
+5->6 | -pi/2 | 0 | 0 | q6
+6->EE | 0 | 0 | 0.303 | 0
 
 * theta parameters may change depending on arm orientation
 * a and alpha are specific to the KR210
@@ -105,7 +106,17 @@ Below is the code used to caluclate the inverse kinematics rotation sequence:
       theta6 = atan2(-R3_6[1, 1], R3_6[1, 0])
  ```
  
-
+ ### Pick and Place Results
+ Picture result from running IK_server.py
+ follow: [kuka]
+ 
+ Video Results can be found [linkname](https://youtu.be/k2mxYQ0cUmU)
+ 
+ ### Project Issues
+ * Attempted local install of the git repository. Had many issues with launch files. Wouldn't run consistently.
+ ### Future Improvement
+ * The VM solves a lot of install issues. Developing a version that can installed locally would be great
+ * I want to continue development of this project after the class. Improving the kinematics by utilizing numpy
  
 
 
