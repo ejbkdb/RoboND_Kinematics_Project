@@ -9,6 +9,10 @@
 Objectives: Utilize a simulated Kuka KR210 manipulator to pick up randomly generatedcylinders located on a shelf 
 and place them in a bucket
 
+### Code Location
+Code for this project can be found [here](https://github.com/ejbkdb/RoboND_Kinematics_Project/tree/master/kuka_arm/scripts)
+
+
 ### Denavit-Hartenberg Diagram
 ![Denavit-Hartenberg Diagram Kuka KR210][DH]
  * reference: Udacity Lesson 11 KR210 Forward Kinematics
